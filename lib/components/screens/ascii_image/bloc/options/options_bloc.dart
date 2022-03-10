@@ -11,17 +11,29 @@ extension BlocExtension on BuildContext {
 
 class OptionsBloc extends Bloc<OptionsEvent, OptionsState> {
   OptionsBloc() : super(const OptionsState.initial()) {
+    on<ToggleOptionButtons>(_onToggleOptionButtons);
     on<ToggleCameraPreview>(_onToggleCameraPreview);
+  }
+
+  void toggleOptionButtons() {
+    add(const ToggleOptionButtons());
+  }
+
+  void toggleCameraPreview() {
+    add(const ToggleCameraPreview());
+  }
+
+  void _onToggleOptionButtons(
+    ToggleOptionButtons event,
+    Emitter<OptionsState> emit,
+  ) async {
+    emit(state.copyWith(showOptionButtons: !state.showOptionButtons));
   }
 
   void _onToggleCameraPreview(
     ToggleCameraPreview event,
     Emitter<OptionsState> emit,
   ) async {
-    emit(state.copyWith(showOptions: !state.cameraPreview));
-  }
-
-  void toggleCameraPreview() {
-    add(const ToggleCameraPreview());
+    emit(state.copyWith(showCameraPreview: !state.showCameraPreview));
   }
 }

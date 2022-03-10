@@ -7,6 +7,10 @@ abstract class OptionsEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class ToggleOptionButtons extends OptionsEvent {
+  const ToggleOptionButtons();
+}
+
 class ToggleCameraPreview extends OptionsEvent {
   const ToggleCameraPreview();
 }
