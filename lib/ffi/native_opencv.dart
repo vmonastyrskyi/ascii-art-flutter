@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:ffi';
 import 'dart:io';
 import 'dart:typed_data';
@@ -8,7 +9,7 @@ final DynamicLibrary nativeOpenCVLib = Platform.isAndroid
     ? DynamicLibrary.open('libnative_opencv.so')
     : DynamicLibrary.process();
 
-typedef ConvertToASCIIStringC = Pointer<Utf8> Function(
+typedef ConvertToASCIIStringC = Pointer<Uint8> Function(
   Pointer<Uint8> bytes,
   Int32 width,
   Int32 height,
@@ -17,9 +18,10 @@ typedef ConvertToASCIIStringC = Pointer<Utf8> Function(
   Pointer<Utf8> density,
   Bool isYUV,
   Int32 flipCode,
+  Pointer<Int32> outLength,
 );
 
-typedef ConvertToASCIIStringDart = Pointer<Utf8> Function(
+typedef ConvertToASCIIStringDart = Pointer<Uint8> Function(
   Pointer<Uint8> bytes,
   int width,
   int height,
@@ -28,6 +30,7 @@ typedef ConvertToASCIIStringDart = Pointer<Utf8> Function(
   Pointer<Utf8> density,
   bool isYUV,
   int flipCode,
+  Pointer<Int32> outLength,
 );
 
 final _convertToAsciiString = nativeOpenCVLib
@@ -62,6 +65,8 @@ class NativeOpencv {
       bytes.setAll(ySize + vSize, uBuffer!);
     }
 
+    final outLength = malloc.allocate<Int32>(1);
+
     final asciiString = _convertToAsciiString(
       imageBuffer,
       width,
@@ -71,11 +76,15 @@ class NativeOpencv {
       density.toNativeUtf8(),
       Platform.isAndroid,
       flipMode.value,
+      outLength,
     );
 
-    malloc.free(imageBuffer);
+    final asciiStringBytes = asciiString.asTypedList(outLength.value);
 
-    return asciiString.toDartString();
+    malloc.free(imageBuffer);
+    malloc.free(outLength);
+
+    return utf8.decode(asciiStringBytes, allowMalformed: true);
   }
 }
 

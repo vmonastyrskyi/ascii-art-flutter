@@ -12,7 +12,7 @@ int clamp(int number, int min, int max, int from, int to)
 
 extern "C" {
     __attribute__((visibility("default"))) __attribute__((used))
-    const char *convert_to_ascii_string(char *bytes, int width, int height, int newWidth, int newHeight, char *density, bool isYUV, int flipCode)
+    const char *convert_to_ascii_string(char *bytes, int width, int height, int newWidth, int newHeight, char *density, bool isYUV, int flipCode, int *outLength)
     {
         Mat srcMat;
         if (isYUV)
@@ -36,7 +36,7 @@ extern "C" {
         string asciiString = "";
         for (int x = 0; x < dstMat.cols; x++)
         {
-            for (int y = dstMat.rows - 1; y > 0; y--)
+            for (int y = dstMat.rows - 1; y >= 0; y--)
             {
                 Vec3b& pixel = dstMat.at<Vec3b>(y, x);
 
@@ -50,6 +50,8 @@ extern "C" {
             }
             asciiString += '\n';
         }
+
+        *outLength = asciiString.length();
 
         return asciiString.c_str();
     }

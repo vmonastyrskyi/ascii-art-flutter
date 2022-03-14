@@ -1,7 +1,2 @@
 ninja: Entering directory `C:\Projects\ascii_camera\android\app\.cxx\cmake\debug\arm64-v8a'
-[1/2] Building CXX object CMakeFiles/native_opencv.dir/C_/Projects/ascii_camera/native_opencv/native_opencv.cpp.o
-C:/Projects/ascii_camera/native_opencv/native_opencv.cpp:54:16: warning: address of stack memory associated with local variable 'asciiString' returned [-Wreturn-stack-address]
-        return asciiString.c_str();
-               ^~~~~~~~~~~
-1 warning generated.
-[2/2] Linking CXX shared library C:\Projects\ascii_camera\build\app\intermediates\cmake\debug\obj\arm64-v8a\libnative_opencv.so
+ninja: no work to do.
