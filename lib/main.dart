@@ -1,66 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'app_colors.dart';
+import 'components/screens/ascii_image/ascii_image_screen.dart';
+import 'components/screens/ascii_image/bloc/ascii_image/ascii_image_bloc.dart';
+import 'components/screens/ascii_image/bloc/options/options_bloc.dart';
+import 'utils/custom_ink_splash.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(const ASCIICameraApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class ASCIICameraApp extends StatelessWidget {
+  const ASCIICameraApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: theme,
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => OptionsBloc()),
+          BlocProvider(create: (_) => ASCIIImageBloc()),
+        ],
+        child: const ASCIIImageScreen(),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+  ThemeData get theme {
+    return ThemeData(
+      primaryColor: AppColors.grey,
+      scaffoldBackgroundColor: AppColors.black,
+      backgroundColor: AppColors.black,
+      splashFactory: CustomInkSplash.splashFactory,
+      colorScheme: ColorScheme.fromSwatch(
+        accentColor: AppColors.white,
       ),
     );
   }

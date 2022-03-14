@@ -1,4 +1,5 @@
 import 'package:ascii_camera/app_colors.dart';
+import 'package:ascii_camera/components/screens/ascii_image/bloc/ascii_image/ascii_image_bloc.dart';
 import 'package:ascii_camera/extensions/widget.dart';
 import 'package:flutter/material.dart';
 
@@ -11,21 +12,21 @@ class OptionsWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _OptionButton(
-          onPressed: () {},
-          iconSize: 32.0,
+          onPressed: context.asciiImageBloc.changeImageResolutionPreset,
           iconData: Icons.grain_rounded,
+          iconSize: 32.0,
           size: ButtonSize.small,
         ),
         const SizedBox(width: 32.0),
         _OptionButton(
-          onPressed: () {},
-          iconSize: 40.0,
+          onPressed: context.asciiImageBloc.toggleImageProcessing,
           iconData: Icons.camera,
+          iconSize: 40.0,
           size: ButtonSize.large,
         ),
         const SizedBox(width: 32.0),
         _OptionButton(
-          onPressed: () {},
+          onPressed: context.asciiImageBloc.swapCamera,
           iconSize: 32.0,
           iconData: Icons.loop_rounded,
           size: ButtonSize.small,
@@ -37,7 +38,7 @@ class OptionsWidget extends StatelessWidget {
 
 enum ButtonSize { small, large }
 
-class _OptionButton extends StatefulWidget {
+class _OptionButton extends StatelessWidget {
   const _OptionButton({
     Key? key,
     required this.onPressed,
@@ -52,38 +53,33 @@ class _OptionButton extends StatefulWidget {
   final ButtonSize size;
 
   @override
-  _OptionButtonState createState() => _OptionButtonState();
-}
-
-double _calculateSize(ButtonSize size) {
-  switch (size) {
-    case ButtonSize.small:
-      return 48.0;
-    case ButtonSize.large:
-      return 64.0;
-  }
-}
-
-class _OptionButtonState extends State<_OptionButton> {
-  @override
   Widget build(BuildContext context) {
     return Container(
-      width: _calculateSize(widget.size),
-      height: _calculateSize(widget.size),
+      width: _calculateSize(),
+      height: _calculateSize(),
       padding: const EdgeInsets.all(2.0),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.white),
         shape: BoxShape.circle,
       ),
       child: InkWell(
-        onTap: widget.onPressed,
+        onTap: onPressed,
         customBorder: const CircleBorder(),
         child: Icon(
-          widget.iconData,
-          size: widget.iconSize,
+          iconData,
+          size: iconSize,
           color: AppColors.white,
         ),
       ),
     );
+  }
+
+  double _calculateSize() {
+    switch (size) {
+      case ButtonSize.small:
+        return 48.0;
+      case ButtonSize.large:
+        return 64.0;
+    }
   }
 }
