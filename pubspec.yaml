@@ -14,6 +14,7 @@ dependencies:
 
   ffi: ^1.1.2
   camera: ^0.9.4+14
+  webview_flutter: ^3.0.1
 
   # state management
   flutter_bloc: ^8.0.1
@@ -29,3 +30,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/index.html

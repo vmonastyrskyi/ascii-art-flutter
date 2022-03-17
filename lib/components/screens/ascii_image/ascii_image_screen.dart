@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:ascii_camera/app_colors.dart';
 import 'package:ascii_camera/components/shared_widgets/app_bar_button.dart';
 import 'package:ascii_camera/components/shared_widgets/ascii_app_bar.dart';
@@ -5,6 +8,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import 'bloc/ascii_image/ascii_image_bloc.dart';
 import 'bloc/options/options_bloc.dart';
@@ -19,9 +23,16 @@ class ASCIIImageScreen extends StatefulWidget {
 
 class _ASCIIImageScreenState extends State<ASCIIImageScreen>
     with WidgetsBindingObserver {
+  WebViewController? _webViewController;
+
   @override
   void initState() {
     super.initState();
+
+    if (Platform.isAndroid) {
+      WebView.platform = AndroidWebView();
+    }
+
     WidgetsBinding.instance!.addObserver(this);
   }
 
@@ -29,20 +40,8 @@ class _ASCIIImageScreenState extends State<ASCIIImageScreen>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       context.asciiImageBloc.openCamera();
-      // final cameraController = _controller;
-      // if (cameraController == null || !cameraController.value.isInitialized) {
-      //   return;
-      // }
-      //
-      // _onNewCameraSelected(cameraController.description);
     } else if (state == AppLifecycleState.paused) {
       context.asciiImageBloc.closeCamera();
-      // final cameraController = _controller;
-      // if (cameraController == null || !cameraController.value.isInitialized) {
-      //   return;
-      // }
-      //
-      // cameraController.dispose();
     }
   }
 
@@ -95,18 +94,29 @@ class _ASCIIImageScreenState extends State<ASCIIImageScreen>
     return BlocSelector<ASCIIImageBloc, ASCIIImageState, String>(
       selector: (state) => state.asciiString,
       builder: (_, asciiString) {
-        return FittedBox(
-          alignment: Alignment.topCenter,
-          fit: BoxFit.fitWidth,
-          child: Text(
-            asciiString,
-            style: const TextStyle(
-              height: 0.67,
-              fontFamily: 'Courier',
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
+        String divASCIIString = context.asciiImageBloc.state.asciiString;
+
+        divASCIIString = divASCIIString.replaceAll(' ', '&nbsp;');
+        divASCIIString = divASCIIString.replaceAll('\n', '<br/>');
+
+        final script =
+            'document.querySelector("#shape").innerHTML="$divASCIIString"';
+
+        _webViewController?.runJavascript(script);
+
+        return WebView(
+          initialUrl: 'about:blank',
+          javascriptMode: JavascriptMode.unrestricted,
+          onWebViewCreated: (webViewController) async {
+            _webViewController = webViewController;
+            final htmlPage =
+                await rootBundle.loadString('assets/index.html');
+            _webViewController?.loadUrl(Uri.dataFromString(
+              htmlPage,
+              mimeType: 'text/html',
+              encoding: Encoding.getByName('utf-8'),
+            ).toString());
+          },
         );
       },
     );
