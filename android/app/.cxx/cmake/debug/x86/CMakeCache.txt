@@ -21,7 +21,7 @@ ANDROID_ABI:UNINITIALIZED=x86
 ANDROID_NDK:UNINITIALIZED=C:\Android\SDK\ndk\23.1.7779620
 
 //No help, variable specified on the command line.
-ANDROID_PLATFORM:UNINITIALIZED=android-21
+ANDROID_PLATFORM:UNINITIALIZED=android-24
 
 //No help, variable specified on the command line.
 CMAKE_ANDROID_ARCH_ABI:UNINITIALIZED=x86
@@ -202,7 +202,7 @@ CMAKE_STRIP:FILEPATH=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/wi
 CMAKE_SYSTEM_NAME:UNINITIALIZED=Android
 
 //No help, variable specified on the command line.
-CMAKE_SYSTEM_VERSION:UNINITIALIZED=21
+CMAKE_SYSTEM_VERSION:UNINITIALIZED=24
 
 //The CMake toolchain file
 CMAKE_TOOLCHAIN_FILE:FILEPATH=C:/Android/SDK/ndk/23.1.7779620/build/cmake/android.toolchain.cmake
@@ -220,10 +220,10 @@ Project_BINARY_DIR:STATIC=C:/Projects/ascii_camera/android/app/.cxx/cmake/debug/
 Project_SOURCE_DIR:STATIC=C:/Projects/ascii_camera/android
 
 //Path to a library.
-log-lib:FILEPATH=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/21/liblog.so
+log-lib:FILEPATH=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/24/liblog.so
 
 //Dependencies for the target
-native_opencv_LIB_DEPENDS:STATIC=general;opencv_calib3d;general;opencv_core;general;opencv_dnn;general;opencv_features2d;general;opencv_flann;general;opencv_gapi;general;opencv_highgui;general;opencv_imgcodecs;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_photo;general;opencv_stitching;general;opencv_video;general;opencv_videoio;general;C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/21/liblog.so;
+native_opencv_LIB_DEPENDS:STATIC=general;opencv_calib3d;general;opencv_core;general;opencv_dnn;general;opencv_features2d;general;opencv_flann;general;opencv_gapi;general;opencv_highgui;general;opencv_imgcodecs;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_photo;general;opencv_stitching;general;opencv_video;general;opencv_videoio;general;C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/24/liblog.so;
 
 
 ########################

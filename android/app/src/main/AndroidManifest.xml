@@ -1,10 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ascii_camera.vm">
+    package="com.vm.ascii_camera">
 
     <application
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="ascii_camera">
+        android:label="ASCII Camera">
 
         <activity
             android:name=".MainActivity"
@@ -28,5 +27,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
     </application>
 </manifest>

@@ -1,4 +1,4 @@
-package com.ascii_camera.vm
+package com.vm.ascii_camera
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,7 +1,7 @@
 [
   {
     "level": "INFO",
-    "message": "Start JSON generation. Platform version: 21 min SDK version: armeabi-v7a",
+    "message": "Start JSON generation. Platform version: 24 min SDK version: armeabi-v7a",
     "file": "C:\\Projects\\ascii_camera\\android\\CMakeLists.txt",
     "tag": "debug|armeabi-v7a"
   },

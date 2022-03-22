@@ -1,0 +1,50 @@
+{
+  "stringTable": {
+    "0": "C:/Projects/ascii_camera/android/app/.cxx/cmake/release/arm64-v8a",
+    "1": "--target=aarch64-none-linux-android24 --gcc-toolchain=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_opencv_EXPORTS -isystem C:/Android/OpenCV/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -DNDEBUG -fPIC -std=gnu++11"
+  },
+  "buildFiles": [
+    "C:\\Projects\\ascii_camera\\android\\CMakeLists.txt",
+    "C:\\Android\\SDK\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Android\\SDK\\ndk\\23.1.7779620\\build\\cmake\\android-legacy.toolchain.cmake",
+    "C:\\Android\\SDK\\ndk\\23.1.7779620\\build\\cmake\\platforms.cmake",
+    "C:\\Android\\SDK\\ndk\\23.1.7779620\\build\\cmake\\compiler_id.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\OpenCVConfig-version.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\OpenCVConfig.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\abi-arm64-v8a\\OpenCVConfig.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\abi-arm64-v8a\\OpenCVModules.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\abi-arm64-v8a\\OpenCVModules-release.cmake"
+  ],
+  "cleanCommands": [
+    "C:\\Android\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Projects\\ascii_camera\\android\\app\\.cxx\\cmake\\release\\arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "C:\\Android\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Projects\\ascii_camera\\android\\app\\.cxx\\cmake\\release\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "native_opencv-Release-arm64-v8a": {
+      "buildCommand": "C:\\Android\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Projects\\ascii_camera\\android\\app\\.cxx\\cmake\\release\\arm64-v8a\" native_opencv",
+      "buildType": "release",
+      "toolchain": "1763232310",
+      "abi": "arm64-v8a",
+      "artifactName": "native_opencv",
+      "files": [
+        {
+          "src": "C:\\Projects\\ascii_camera\\native_opencv\\native_opencv.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "C:\\Projects\\ascii_camera\\build\\app\\intermediates\\cmake\\release\\obj\\arm64-v8a\\libnative_opencv.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "1763232310": {
+      "cppCompilerExecutable": "C:\\Android\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

@@ -87,38 +87,39 @@ class _ASCIIImageScreenState extends State<ASCIIImageScreen>
   void dispose() {
     WidgetsBinding.instance!.removeObserver(this);
     context.asciiImageBloc.closeCamera(updateState: false);
+    context.asciiImageBloc.dispose();
     super.dispose();
   }
 
   Widget _buildASCIIImage() {
-    return BlocSelector<ASCIIImageBloc, ASCIIImageState, String>(
-      selector: (state) => state.asciiString,
-      builder: (_, asciiString) {
-        String divASCIIString = context.asciiImageBloc.state.asciiString;
-
-        divASCIIString = divASCIIString.replaceAll(' ', '&nbsp;');
-        divASCIIString = divASCIIString.replaceAll('\n', '<br/>');
+    return BlocListener<ASCIIImageBloc, ASCIIImageState>(
+      listener: (_, state) {
+        var asciiString = state.asciiString;
+        asciiString = asciiString.replaceAll(' ', '&nbsp;');
+        asciiString = asciiString.replaceAll('\n', '<br/>');
 
         final script =
-            'document.querySelector("#shape").innerHTML="$divASCIIString"';
+            'document.querySelector("#shape").innerHTML="$asciiString"';
 
         _webViewController?.runJavascript(script);
+      },
+      child: WebView(
+        initialUrl: 'about:blank',
+        javascriptMode: JavascriptMode.unrestricted,
+        onWebViewCreated: (webViewController) async {
+          await webViewController.clearCache();
 
-        return WebView(
-          initialUrl: 'about:blank',
-          javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: (webViewController) async {
-            _webViewController = webViewController;
-            final htmlPage =
-                await rootBundle.loadString('assets/index.html');
-            _webViewController?.loadUrl(Uri.dataFromString(
-              htmlPage,
+          _webViewController = webViewController;
+
+          webViewController.loadUrl(
+            Uri.dataFromString(
+              await rootBundle.loadString('assets/index.html'),
               mimeType: 'text/html',
               encoding: Encoding.getByName('utf-8'),
-            ).toString());
-          },
-        );
-      },
+            ).toString(),
+          );
+        },
+      ),
     );
   }
 

@@ -1,7 +1,7 @@
 [
 {
   "directory": "C:/Projects/ascii_camera/android/app/.cxx/cmake/debug/arm64-v8a",
-  "command": "C:\\Android\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_opencv_EXPORTS -isystem C:/Android/OpenCV/sdk/native/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC   -std=gnu++11 -o CMakeFiles\\native_opencv.dir\\C_\\Projects\\ascii_camera\\native_opencv\\native_opencv.cpp.o -c C:\\Projects\\ascii_camera\\native_opencv\\native_opencv.cpp",
+  "command": "C:\\Android\\SDK\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_opencv_EXPORTS -isystem C:/Android/OpenCV/sdk/native/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC   -std=gnu++11 -o CMakeFiles\\native_opencv.dir\\C_\\Projects\\ascii_camera\\native_opencv\\native_opencv.cpp.o -c C:\\Projects\\ascii_camera\\native_opencv\\native_opencv.cpp",
   "file": "C:\\Projects\\ascii_camera\\native_opencv\\native_opencv.cpp"
 }
 ]
