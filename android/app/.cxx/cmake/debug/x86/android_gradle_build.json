@@ -1,7 +1,7 @@
 {
   "stringTable": {
     "0": "C:/Projects/ascii_camera/android/app/.cxx/cmake/debug/x86",
-    "1": "--target=i686-none-linux-android21 --gcc-toolchain=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_opencv_EXPORTS -isystem C:/Android/OpenCV/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fno-limit-debug-info -fPIC -std=gnu++11"
+    "1": "--target=i686-none-linux-android24 --gcc-toolchain=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Android/SDK/ndk/23.1.7779620/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_opencv_EXPORTS -isystem C:/Android/OpenCV/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fno-limit-debug-info -fPIC -std=gnu++11"
   },
   "buildFiles": [
     "C:\\Projects\\ascii_camera\\android\\CMakeLists.txt",

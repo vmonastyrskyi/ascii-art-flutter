@@ -6,14 +6,14 @@ arguments :
 -DCMAKE_TOOLCHAIN_FILE=C:\Android\SDK\ndk\23.1.7779620\build\cmake\android.toolchain.cmake
 -DANDROID_ABI=arm64-v8a
 -DANDROID_NDK=C:\Android\SDK\ndk\23.1.7779620
--DANDROID_PLATFORM=android-21
+-DANDROID_PLATFORM=android-24
 -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a
 -DCMAKE_ANDROID_NDK=C:\Android\SDK\ndk\23.1.7779620
 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\Projects\ascii_camera\build\app\intermediates\cmake\debug\obj\arm64-v8a
 -DCMAKE_MAKE_PROGRAM=C:\Android\SDK\cmake\3.10.2.4988404\bin\ninja.exe
 -DCMAKE_SYSTEM_NAME=Android
--DCMAKE_SYSTEM_VERSION=21
+-DCMAKE_SYSTEM_VERSION=24
 -BC:\Projects\ascii_camera\android\app\.cxx\cmake\debug\arm64-v8a
 -GNinja
 jvmArgs : 

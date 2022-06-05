@@ -1,6 +1,6 @@
 {
   "abi": "X86_64",
-  "abiPlatformVersion": 21,
+  "abiPlatformVersion": 24,
   "buildSettings": {
     "environmentVariables": []
   },
@@ -41,7 +41,7 @@
         },
         {
           "name": "ANDROID_PLATFORM",
-          "value": "android-21"
+          "value": "android-24"
         },
         {
           "name": "CMAKE_ANDROID_ARCH_ABI",
@@ -69,7 +69,7 @@
         },
         {
           "name": "CMAKE_SYSTEM_VERSION",
-          "value": "21"
+          "value": "24"
         }
       ]
     }

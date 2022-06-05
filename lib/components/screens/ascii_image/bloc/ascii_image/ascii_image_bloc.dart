@@ -68,12 +68,13 @@ class ASCIIImageBloc extends Bloc<ASCIIImageEvent, ASCIIImageState> {
       return;
     }
 
+    if (_cameraController!.value.isStreamingImages) {
+      _cameraController!.stopImageStream();
+    }
+
     if (updateState) {
       add(const ChangeCamera(cameraController: null));
     }
-
-    _cameraController?.stopImageStream();
-    _cameraController?.dispose();
   }
 
   void swapCamera() async {
@@ -85,6 +86,10 @@ class ASCIIImageBloc extends Bloc<ASCIIImageEvent, ASCIIImageState> {
       await _onNewCameraSelected(_camera = _cameras[index]);
       add(ChangeCamera(cameraController: _cameraController));
     }
+  }
+
+  void dispose() {
+    _cameraController?.dispose();
   }
 
   void _initialize() async {
@@ -130,13 +135,17 @@ class ASCIIImageBloc extends Bloc<ASCIIImageEvent, ASCIIImageState> {
       enableAudio: false,
     );
 
-    await previousCameraController?.stopImageStream();
-    await previousCameraController?.dispose();
+    if (previousCameraController != null) {
+      if (previousCameraController.value.isStreamingImages) {
+        await previousCameraController.stopImageStream();
+      }
+      await previousCameraController.dispose();
+    }
 
     try {
-      await _cameraController?.initialize();
+      await _cameraController!.initialize();
 
-      _cameraController?.startImageStream((image) {
+      _cameraController!.startImageStream((image) {
         if (_isImageProcessing) {
           final planes = image.planes;
           final yBuffer = planes[0].bytes;
@@ -172,12 +181,8 @@ class ASCIIImageBloc extends Bloc<ASCIIImageEvent, ASCIIImageState> {
         }
       });
     } on CameraException catch (e) {
-      _showCameraException(e);
+      _logError(e.code, e.description);
     }
-  }
-
-  void _showCameraException(CameraException e) {
-    _logError(e.code, e.description);
   }
 
   void _logError(String code, String? message) {

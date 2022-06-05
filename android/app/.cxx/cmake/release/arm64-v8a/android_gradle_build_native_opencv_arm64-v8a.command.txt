@@ -1,0 +1,7 @@
+Executable : C:\Android\SDK\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+C:\Projects\ascii_camera\android\app\.cxx\cmake\release\arm64-v8a
+native_opencv
+jvmArgs : 
+

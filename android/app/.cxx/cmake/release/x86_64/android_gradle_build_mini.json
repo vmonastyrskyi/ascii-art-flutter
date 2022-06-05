@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "C:\\Projects\\ascii_camera\\android\\CMakeLists.txt",
+    "C:\\Android\\SDK\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Android\\SDK\\ndk\\23.1.7779620\\build\\cmake\\android-legacy.toolchain.cmake",
+    "C:\\Android\\SDK\\ndk\\23.1.7779620\\build\\cmake\\platforms.cmake",
+    "C:\\Android\\SDK\\ndk\\23.1.7779620\\build\\cmake\\compiler_id.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\OpenCVConfig-version.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\OpenCVConfig.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\abi-x86_64\\OpenCVConfig.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\abi-x86_64\\OpenCVModules.cmake",
+    "C:\\Android\\OpenCV\\sdk\\native\\jni\\abi-x86_64\\OpenCVModules-release.cmake"
+  ],
+  "cleanCommands": [
+    "C:\\Android\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Projects\\ascii_camera\\android\\app\\.cxx\\cmake\\release\\x86_64\" clean"
+  ],
+  "buildTargetsCommand": "C:\\Android\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Projects\\ascii_camera\\android\\app\\.cxx\\cmake\\release\\x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "native_opencv-Release-x86_64": {
+      "artifactName": "native_opencv",
+      "buildCommand": "C:\\Android\\SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Projects\\ascii_camera\\android\\app\\.cxx\\cmake\\release\\x86_64\" native_opencv",
+      "abi": "x86_64",
+      "output": "C:\\Projects\\ascii_camera\\build\\app\\intermediates\\cmake\\release\\obj\\x86_64\\libnative_opencv.so",
+      "runtimeFiles": []
+    }
+  }
+}
