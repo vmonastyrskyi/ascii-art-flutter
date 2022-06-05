@@ -1,3 +1,5 @@
 # ninja log v5
 1	2489	669325997	CMakeFiles/native_opencv.dir/C_/Projects/ascii_camera/native_opencv/native_opencv.cpp.o	84c1df7fcec3ad12
 2492	3534	669325998	C:/Projects/ascii_camera/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libnative_opencv.so	fb32bd5bdd3a6947
+3	3957	676075154	CMakeFiles/native_opencv.dir/C_/Projects/ascii_camera/native_opencv/native_opencv.cpp.o	84c1df7fcec3ad12
+3957	6151	676075157	C:/Projects/ascii_camera/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libnative_opencv.so	fb32bd5bdd3a6947
