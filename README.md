@@ -1,4 +1,4 @@
-# ASCII Image
+# ASCII Art
 
 Application that converts in realtime camera video-stream to ASCII image using Flutter and С++ for fast converting image with help Dart FFI.
 
